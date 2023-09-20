@@ -5,10 +5,14 @@
 
 class Rational {
     public:
+    Rational();
+    Rational(int numer, int denom);
 
 
 
     private:
+    int numerator;
+    int denominator;
 
 
 };
