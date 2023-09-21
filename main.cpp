@@ -32,15 +32,12 @@ int main()
     num3.reduce();
     cout <<"Reduced num3 = "<<num3<<endl;
     
-    Rational num4(4,2);
-    num4.reduce();
-    cout << "Reduced num4 = " << num4 << endl;
-/*
+
     Rational num4("3/-4");//Convert Constructor
     cout <<"num4 = "<<num4<<endl;
     num4.reduce();
     cout <<"Reduced num4 = "<<num4<<endl;
-
+/*
     double num5 = num4;//type conversion operator
     cout <<"num5 = "<<num5<<endl;
 
