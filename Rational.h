@@ -8,6 +8,7 @@ class Rational {
     public:
     Rational();
     Rational(int numer, int denom);
+    Rational(const Rational &right);
     friend std::ostream &operator<<(std::ostream &output, const Rational &R );
     Rational& operator=(const Rational &right);
     operator double() const;
@@ -19,6 +20,8 @@ class Rational {
     int getDenominator() const {
         return denominator;
     }
+
+    bool reduce();
 
 
     private:

@@ -25,13 +25,17 @@ int main()
     num2=num1;//assignment
     cout <<"num2 = "<<num2<<endl;
     cout<<"num2 as a decimal = "<<static_cast<double>(num2)<<endl;//type conversion operator
-/*
+
     Rational num3 = num2;//initialization
     cout <<"num3 = "<<num3<<endl;
 
     num3.reduce();
     cout <<"Reduced num3 = "<<num3<<endl;
-
+    
+    Rational num4(4,2);
+    num4.reduce();
+    cout << "Reduced num4 = " << num4 << endl;
+/*
     Rational num4("3/-4");//Convert Constructor
     cout <<"num4 = "<<num4<<endl;
     num4.reduce();
