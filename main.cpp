@@ -20,12 +20,12 @@ int main()
     Rational num1(12,16);
     cout <<"num1 = "<<num1<<endl;
 
-/*
+
     Rational num2;
     num2=num1;//assignment
     cout <<"num2 = "<<num2<<endl;
     cout<<"num2 as a decimal = "<<static_cast<double>(num2)<<endl;//type conversion operator
-
+/*
     Rational num3 = num2;//initialization
     cout <<"num3 = "<<num3<<endl;
 
