@@ -9,7 +9,8 @@ Rational::Rational(int numer, int denom){
 }
 
 
-Rational::Rational(std::string str){
+Rational::Rational(std::string str) : Rational(&(str[0])){
+    /*
     std::string numer = "";
     std::string denom = "";
     bool denominator = false;
@@ -47,6 +48,50 @@ Rational::Rational(std::string str){
             this->numerator *= -1;
         }
     }
+    */
+}
+
+
+Rational::Rational(const char * str) {
+    std::string numer = "";
+    std::string denom = "";
+    bool denominator = false;
+    bool negative = false;
+    int index = 0;
+    do {
+        if(str[index] == '/'){
+            denominator = true;
+        } else if(denominator){
+            if(str[index] == '-'){
+                negative = !negative;
+            } else {
+                denom += str[index];
+            }
+        } else {
+            if(str[index] == '-'){
+                negative = !negative;
+            } else {
+                numer += str[index];
+            }
+        }
+        if(numer != ""){
+            this->numerator = std::stoi(numer);
+        } else {
+            this->numerator = 1;
+        }
+        
+        if(denom != ""){
+            this->denominator = std::stoi(denom);
+        } else {
+            this->denominator = -1;
+        }
+
+
+        if(negative){
+            this->numerator *= -1;
+        }
+        ++index;
+    } while(*(str+index) != '\0');
 }
 
 Rational::Rational(const Rational &right){
@@ -68,6 +113,56 @@ Rational& Rational::operator=(const Rational &right){
     this->denominator = right.getDenominator();
     return *this;
 }
+
+
+Rational Rational::operator+(const Rational &right){
+    int numer = 1;
+    int denom = 1;
+
+    denom = this->getDenominator() * right.getDenominator();
+    numer = this->getNumerator() * right.getDenominator() + right.getNumerator() * this->getDenominator();
+    Rational sum(numer,denom);
+    sum.reduce();
+    return sum;
+}
+
+
+Rational Rational::operator-(const Rational &right){
+    int numer = 1;
+    int denom = 1;
+
+    denom = this->getDenominator() * right.getDenominator();
+    numer = this->getNumerator() * right.getDenominator() - right.getNumerator() * this->getDenominator();
+    Rational sum(numer,denom);
+    sum.reduce();
+    return sum;
+}
+
+
+Rational Rational::operator*(const Rational &right){
+    int numer = 1;
+    int denom = 1;
+
+    denom = this->getDenominator() * right.getDenominator();
+    numer = this->getNumerator() * right.getNumerator();
+    Rational sum(numer,denom);
+    sum.reduce();
+    return sum;
+}
+
+
+Rational Rational::operator/(const Rational &right){
+    int numer = 1;
+    int denom = 1;
+
+    denom = this->getDenominator() * right.getNumerator();
+    numer = this->getNumerator() * right.getDenominator();
+    Rational sum(numer,denom);
+    sum.reduce();
+    return sum;
+
+}
+
 
 Rational::operator double() const {
     double value = 0;

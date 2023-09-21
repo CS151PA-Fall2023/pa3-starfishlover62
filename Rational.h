@@ -9,9 +9,14 @@ class Rational {
     Rational();
     Rational(int numer, int denom);
     Rational(std::string str);
+    Rational(const char * str);
     Rational(const Rational &right);
     friend std::ostream &operator<<(std::ostream &output, const Rational &R );
     Rational& operator=(const Rational &right);
+    Rational operator+(const Rational &right);
+    Rational operator-(const Rational &right);
+    Rational operator*(const Rational &right);
+    Rational operator/(const Rational &right);
     operator double() const;
 
     int getNumerator() const {

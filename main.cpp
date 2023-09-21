@@ -37,9 +37,10 @@ int main()
     cout <<"num4 = "<<num4<<endl;
     num4.reduce();
     cout <<"Reduced num4 = "<<num4<<endl;
-/*
+
     double num5 = num4;//type conversion operator
     cout <<"num5 = "<<num5<<endl;
+
 
     Rational num6 = "3/4";
     cout <<"num6 = "<<num6<<endl;
@@ -60,7 +61,6 @@ int main()
     Rational num11 = num3 + num1 * num2;
     cout << num3 << " + " << num1 << "*" << num2 << " = " << num11 << "\n\n";
 
-*/
 
     return 0;
 }
